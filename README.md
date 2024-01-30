@@ -111,5 +111,5 @@
            output is very big.
       
       h. Find a month for each year in which maximum number of quantities were sold    
-    ans:   
+    ans:   select year_id,month_id ,sum(quantityordered) as total_quantity from sales_order_data_orc group by year_id, month_id order by year_id,total_quantity desc;
                    
