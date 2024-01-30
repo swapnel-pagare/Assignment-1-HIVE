@@ -79,12 +79,12 @@
 
                        
       b.   Find a product for which maximum orders were placed
-    ans:   select productline as product,quantityordered as max_quantity_of_order from sales_order_data_orc group by productline order by quantityordered desc limit 1;
+    ans:   select productline as product,quantityordered as max_quantity_of_order from sales_order_orc group by productline order by quantityordered desc limit 1;
            output is :  product max_quantity_of_order
                         Classic Cars    97
 
       c.   Calculate the total sales for each quarter
-    ans:   select qtr_id as quarter,sum(sales) as total_sale_per_quarter from sales_order_data_orc group by qtr_id;
+    ans:   select qtr_id as quarter,sum(sales) as total_sale_per_quarter from sales_order_orc group by qtr_id;
            output is :quarter total_sale_per_quarter
                           1       2350817.726501465
                           2       2048120.3029174805
@@ -92,24 +92,24 @@
                           4       3874780.010925293
 
       d.   In which quarter sales was minimum 
-    ans:   select qtr_id as quarter,sales as min_sale from sales_order_data_orc group by qtr_id,sales order by sales asc limit 1;
+    ans:   select qtr_id as quarter,sales as min_sale from sales_order_orc group by qtr_id,sales order by sales asc limit 1;
            output is :quarter min_sale
                       2       482.13
      
       e.   In which country sales was maximum and in which country sales was minimum
     ans:   1. the country in which sales was maximum 
-         ans: select country,sales as country_in_which_sale_was_maximum from sales_order_data_orc order by country_in_which_sale_was_maximum desc limit 1;
+         ans: select country,sales as country_in_which_sale_was_maximum from sales_order_orc order by country_in_which_sale_was_maximum desc limit 1;
               output is :country country_in_which_sale_was_maximum
                          USA     14082.8
            2. the country in which sales was minimum
-         ans:   select country,sales as country_in_which_sale_was_minimum from sales_order_data_orc order by country_in_which_sale_was_minimum asc limit 1;
+         ans:   select country,sales as country_in_which_sale_was_minimum from sales_order_orc order by country_in_which_sale_was_minimum asc limit 1;
                 output is :country country_in_which_sale_was_minimum
                            France  482.13
       
       f.   Calculate quartelry sales for each city                    
-    ans:   select city,qtr_id as quarter,sum(sales) as sales from sales_order_data_orc group by city,qtr_id;
+    ans:   select city,qtr_id as quarter,sum(sales) as sales from sales_order_orc group by city,qtr_id;
            output is very big.
       
       h. Find a month for each year in which maximum number of quantities were sold    
-    ans:   select year_id,month_id ,sum(quantityordered) as total_quantity from sales_order_data_orc group by year_id, month_id order by year_id,total_quantity desc;
+    ans:   select year_id,month_id ,sum(quantityordered) as total_quantity from sales_order_orc group by year_id, month_id order by year_id,total_quantity desc;
                    
