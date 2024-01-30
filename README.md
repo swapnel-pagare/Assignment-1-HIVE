@@ -1,8 +1,14 @@
 # Assignment-1-HIVE
 1.  Download vechile sales data -> https://github.com/shashank-mishra219/Hive-Class/blob/main/sales_order_data.csv
   ans: I downloaded file sales_order_data.csv and uploaded it on local file system of cloudera through filezilla.
+
+
+
 2.Store raw data into hdfs location
   ans:  I used the following command to store raw data in an hdfs location "hadoop fs -copyFromLocal /home/cloudera/sales_order_data /sales_order_data"
+
+
+
 3.Create a internal hive table "sales_order_csv" which will store csv data sales_order_csv .. make sure to skip header row while creating table
   ans:
        create table sales_order_csv
